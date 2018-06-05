@@ -21,8 +21,17 @@ pipeline {
       }
     }
     stage('Test4') {
-      steps {
-        echo 'For all that we see or seem, is just a dream within a dream ...'
+      parallel {
+        stage('Test4') {
+          steps {
+            echo 'For all that we see or seem, is just a dream within a dream ...'
+          }
+        }
+        stage('Test5') {
+          steps {
+            echo 'If anything can go wrong, it will ...'
+          }
+        }
       }
     }
   }
