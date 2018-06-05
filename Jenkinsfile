@@ -34,5 +34,10 @@ pipeline {
         }
       }
     }
+    stage('Test6') {
+      steps {
+        echo 'This is the end, you now ...'
+      }
+    }
   }
 }
