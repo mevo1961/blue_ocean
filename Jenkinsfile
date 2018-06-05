@@ -13,6 +13,11 @@ pipeline {
             echo '... and nothing now can ever come to any good.'
           }
         }
+        stage('Test3') {
+          steps {
+            echo 'Everything will be good in the end. If it\'s not good, it\'s not the end!'
+          }
+        }
       }
     }
   }
