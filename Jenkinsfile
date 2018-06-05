@@ -20,5 +20,10 @@ pipeline {
         }
       }
     }
+    stage('Test4') {
+      steps {
+        echo 'For all that we see or seem, is just a dream within a dream ...'
+      }
+    }
   }
 }
