@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'mevo-xubuntu'
+    }
+
+  }
   stages {
     stage('Test1') {
       parallel {
