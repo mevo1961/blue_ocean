@@ -6,6 +6,7 @@ pipeline {
         stage('Test1') {
           steps {
             sh '''uname -a
+cat /etc/hostname
 pwd'''
           }
         }
