@@ -35,8 +35,17 @@ pipeline {
       }
     }
     stage('Test6') {
-      steps {
-        echo 'This is the end, you now ...'
+      parallel {
+        stage('Test6') {
+          steps {
+            echo 'This is the end, you now ...'
+          }
+        }
+        stage('Coverity') {
+          steps {
+            sh './jenkins/scripts/coverity_scan_all.sh FSM-r3 ddal n'
+          }
+        }
       }
     }
   }
