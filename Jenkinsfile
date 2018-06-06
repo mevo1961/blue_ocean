@@ -45,7 +45,7 @@ pwd'''
         }
         stage('Coverity') {
           steps {
-            sh './jenkins/scripts/coverity_scan_all.sh FSM-r4 ddal n'
+            sh './jenkins/scripts/coverity_scan_all.sh FSM-r3 ddal n'
           }
         }
       }
