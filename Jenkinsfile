@@ -5,7 +5,8 @@ pipeline {
       parallel {
         stage('Test1') {
           steps {
-            sh 'echo \'Hello, world\''
+            sh '''uname -a
+pwd'''
           }
         }
         stage('Test2') {
