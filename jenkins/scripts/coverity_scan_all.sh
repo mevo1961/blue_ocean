@@ -106,7 +106,7 @@ build_cmd()
     esac
     if [[ ${BITBAKE_BUILD} == "y" ]]; then
         echo "#!/bin/bash"  > ./build_${module}.sh
-        echo ". ./env.sh $BITBAKE_TARGET && bitbake ${module} -f -c install" >> ./build_${module}.sh
+        echo "make"
         chmod 777 ./build_${module}.sh
         echo "./build_${module}.sh"
     else
