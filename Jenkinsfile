@@ -5,7 +5,9 @@ pipeline {
       parallel {
         stage('Test1') {
           steps {
-            sh 'echo \'Hello, world\''
+            sh '''uname -a
+cat /etc/hostname
+pwd'''
           }
         }
         stage('Test2') {
@@ -20,7 +22,7 @@ pipeline {
         }
       }
     }
-    stage('Test4') {
+    stage('Testwddlbrmf') {
       parallel {
         stage('Test4') {
           steps {
@@ -35,8 +37,17 @@ pipeline {
       }
     }
     stage('Test6') {
-      steps {
-        echo 'This is the end, you now ...'
+      parallel {
+        stage('Test6') {
+          steps {
+            echo 'This is the end, you now ...'
+          }
+        }
+        stage('Coverity') {
+          steps {
+            sh './jenkins/scripts/coverity_scan_all.sh FSM-r3 ddal n'
+          }
+        }
       }
     }
   }

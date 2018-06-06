@@ -141,7 +141,7 @@ run_coverity()
         fi
 
         echo "building dependencies"
-        bash -c ". ./env.sh ${BITBAKE_TARGET} && bitbake ${bbmodule}"
+        bash -c "make"
     else
         timeout -s 9 ${COV_BUILD_TIMEOUT} $(build_cmd $module)
     fi
