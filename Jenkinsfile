@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'mevo-xubuntu'
+      label 'none'
     }
 
   }
@@ -27,7 +27,7 @@ pwd'''
         }
       }
     }
-    stage('Test4') {
+    stage('Testwddlbrmf') {
       parallel {
         stage('Test4') {
           steps {
