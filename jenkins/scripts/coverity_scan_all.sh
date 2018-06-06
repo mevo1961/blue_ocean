@@ -106,7 +106,7 @@ build_cmd()
     esac
     if [[ ${BITBAKE_BUILD} == "y" ]]; then
         echo "#!/bin/bash"  > ./build_${module}.sh
-        echo "make"
+        echo "date"
         chmod 777 ./build_${module}.sh
         echo "./build_${module}.sh"
     else
@@ -141,7 +141,7 @@ run_coverity()
         fi
 
         echo "building dependencies"
-        bash -c "make"
+        bash -c "date"
     else
         timeout -s 9 ${COV_BUILD_TIMEOUT} $(build_cmd $module)
     fi
