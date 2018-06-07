@@ -23,20 +23,12 @@ pipeline {
             echo 'Cleaning up ...'
           }
         }
-        stage('error') {
+        stage('') {
           steps {
-            sh ''' publishHTML(target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: \'coverage\',
-            reportFiles: \'index.html\',
-            reportTitles: "SimpleCov Report",
-            reportName: "SimpleCov Report"
-          ])'''
-            }
+            sh 'date'
           }
         }
       }
     }
   }
+}
