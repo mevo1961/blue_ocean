@@ -23,7 +23,7 @@ pipeline {
             echo 'Cleaning up ...'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             sh '''publishHTML(target: [
             allowMissing: true,
