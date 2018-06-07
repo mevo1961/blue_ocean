@@ -97,7 +97,7 @@ run_coverity()
         # the following stream must exist on the Connect Server. If it does not exist yet, create it:
         # go to https://escovsub1.emea.nsn-net.net:8443, then "Configuration" (top on the right side) - "Projects & Streams"
 
-        if check_committing_necessary ; then
+        if check_committing_necessary $results_dir ; then
             # commit to server with given timeout
             echo now committing data to server ...
             timeout -s 9 ${COV_CONNECT_SERVER_TIMEOUT} cov-commit-defects --ssl --on-new-cert trust --auth-key-file "$COV_KEYFILE" --dir "$results_dir" --host "$COV_CONNECT_SERVER" --https-port ${COV_CONNECT_HTTPS_PORT} --stream "$COV_STREAM" --scm git
@@ -196,10 +196,11 @@ EOF
 
 ## @fn      check_committing_necessary()
 #  @brief   check if either new defects were found or previously existing defects were fixed
-#  @param   <none>
+#  @param   results_dir  directory containing results of Coverity analysis
 #  @return  <none>
 check_committing_necessary()
 {
+    local results_dir="$1"
     local defects_file=defects.txt
     local new_cid_file=new_cids.txt
     local preview_file=commit_preview.txt
@@ -212,7 +213,7 @@ check_committing_necessary()
     echo found ${ISSUES_IN_DATABASE} issues in database
 
     # create a preview of defects in current workspace
-    cov-commit-defects --ssl --on-new-cert trust --auth-key-file "$COV_KEYFILE" --dir "$COV_RESULTS_DIR" --host ${COV_CONNECT_SERVER} --https-port ${COV_CONNECT_HTTPS_PORT} --stream $COV_STREAM --preview-report-v2 $preview_file
+    cov-commit-defects --ssl --on-new-cert trust --auth-key-file "$COV_KEYFILE" --dir "$results_dir" --host ${COV_CONNECT_SERVER} --https-port ${COV_CONNECT_HTTPS_PORT} --stream $COV_STREAM --preview-report-v2 $preview_file
 
 
     ISSUES_IN_CURRENT_ANALYSIS=$(grep -c '"cid" :' ${preview_file})
