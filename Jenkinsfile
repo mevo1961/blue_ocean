@@ -25,14 +25,14 @@ pipeline {
         }
         stage('error') {
           steps {
-            sh '''publishHTML(target: [
-            allowMissing: true,
-            alwaysLinkToLastBuild: true,
+            sh ''' publishHTML(target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: \'./jenkins/data/COV_WORKDIR/coverity-results/src\',
+            reportDir: \'coverage\',
             reportFiles: \'index.html\',
-            reportTitles: "Coverity Report",
-            reportName: "Coverity Report"
+            reportTitles: "SimpleCov Report",
+            reportName: "SimpleCov Report"
           ])'''
             }
           }
