@@ -3,12 +3,12 @@ pipeline {
   stages {
     stage('Coverity') {
       parallel {
-        stage('Test6') {
+        stage('Coverity_Message') {
           steps {
             echo 'Test Stage Coverity'
           }
         }
-        stage('Coverity') {
+        stage('Coverity_run') {
           steps {
             sh '''cd jenkins/scripts/
 ./coverity_scan_all.sh y'''
@@ -16,7 +16,7 @@ pipeline {
         }
       }
     }
-    stage('Cleanup') {
+    stage('Cleanup_Message') {
       steps {
         echo 'Cleaning up ...'
       }
