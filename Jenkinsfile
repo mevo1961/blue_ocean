@@ -17,9 +17,26 @@ pipeline {
       }
     }
     stage('Cleanup_Message') {
-      steps {
-        echo 'Cleaning up ...'
+      parallel {
+        stage('Cleanup_Message') {
+          steps {
+            echo 'Cleaning up ...'
+          }
+        }
+        stage('') {
+          steps {
+            sh '''publishHTML(target: [
+            allowMissing: true,
+            alwaysLinkToLastBuild: true,
+            keepAll: true,
+            reportDir: \'./jenkins/data/COV_WORKDIR/coverity-results/src\',
+            reportFiles: \'index.html\',
+            reportTitles: "Coverity Report",
+            reportName: "Coverity Report"
+          ])'''
+            }
+          }
+        }
       }
     }
   }
-}
