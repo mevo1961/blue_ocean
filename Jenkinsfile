@@ -25,7 +25,7 @@ pipeline {
         }
         stage('') {
           steps {
-            sh 'date'
+            coverityResults(connectInstance: 'escovsub1', connectView: 'master--ddal--x86_64-pc-linux-gnu', projectId: 'BTS_SC_LFS', failPipeline: true)
           }
         }
       }
