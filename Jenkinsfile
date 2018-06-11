@@ -28,9 +28,9 @@ pipeline {
             coverityResults(connectInstance: 'escovsub1', connectView: 'mevo-test-blue_ocean', projectId: 'BTS_SC_LFS', unstable: true)
           }
         }
-        stage('publish HTML results') {
+        stage('publish Html') {
           steps {
-            publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: true, reportDir: './jenkins/data/COV_WORKDIR/coverity-report/', reportFiles: 'index.html', reportTitles: 'HTML report', reportName: 'HTML report'])
+            sh 'date'
           }
         }
       }
