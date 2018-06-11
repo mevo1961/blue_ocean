@@ -31,8 +31,17 @@ pipeline {
       }
     }
     stage('Cleanup') {
-      steps {
-        sh 'rm -rf ./jenkins/data/COV_WORKDIR'
+      parallel {
+        stage('Cleanup') {
+          steps {
+            echo 'cleaning up ...'
+          }
+        }
+        stage('cleanup Workdir') {
+          steps {
+            sh 'rm -rf ./jenkins/data/COV_WORKDIR'
+          }
+        }
       }
     }
   }
