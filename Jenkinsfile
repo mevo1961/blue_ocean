@@ -23,16 +23,9 @@ pipeline {
             echo 'Cleaning up ...'
           }
         }
-        stage('Publish') {
+        stage('') {
           steps {
-            publishHTML ([
-      allowMissing: false,
-      alwaysLinkToLastBuild: false,
-      keepAll: true,
-      reportDir: 'coverage',
-      reportFiles: 'index.html',
-      reportName: "RCov Report"
-    ])
+            sh 'date'
           }
         }
       }
