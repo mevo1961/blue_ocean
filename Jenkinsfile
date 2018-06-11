@@ -25,7 +25,7 @@ pipeline {
         }
         stage('error') {
           steps {
-            coverityResults(connectInstance: 'escovsub1', connectView: 'Outstanding Defects - AirScale5G - DDAL', projectId: 'BTS_SC_LFS', failPipeline: true)
+            coverityResults(connectInstance: 'escovsub1', connectView: 'Outstanding Defects - AirScale5G - DDAL', projectId: 'BTS_SC_LFS', unstable: true)
           }
         }
       }
