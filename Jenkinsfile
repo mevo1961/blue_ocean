@@ -30,5 +30,10 @@ pipeline {
         }
       }
     }
+    stage('Cleanup') {
+      steps {
+        sh 'rm -rf ./jenkins/data/COV_WORKDIR'
+      }
+    }
   }
 }
