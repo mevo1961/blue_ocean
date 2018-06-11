@@ -28,25 +28,16 @@ pipeline {
             coverityResults(connectInstance: 'escovsub1', connectView: 'mevo-test-blue_ocean', projectId: 'BTS_SC_LFS', unstable: true)
           }
         }
-        stage('publish Html') {
+        stage('') {
           steps {
-            publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: true, reportDir: './jenkins/data/COV_WORKDIR/coverity-report/', reportFiles: 'index.html', reportTitles: 'HTML', reportName: 'Coverity Html'])
+            sh 'publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: true, reportDir: \'./jenkins/data/COV_WORKDIR/coverity-report/\', reportFiles: \'index.html\', reportTitles: \'HTML\', reportName: \'Coverity Html\'])'
           }
         }
       }
     }
     stage('Cleanup') {
-      parallel {
-        stage('Cleanup') {
-          steps {
-            echo 'cleaning up ...'
-          }
-        }
-        stage('cleanup Workdir') {
-          steps {
-            sh 'rm -rf ./jenkins/data/COV_WORKDIR'
-          }
-        }
+      steps {
+        echo 'cleaning up ...'
       }
     }
   }
