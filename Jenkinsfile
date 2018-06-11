@@ -16,16 +16,16 @@ pipeline {
         }
       }
     }
-    stage('Cleanup_Message') {
+    stage('Publish Results') {
       parallel {
         stage('Cleanup_Message') {
           steps {
             echo 'Cleaning up ...'
           }
         }
-        stage('error') {
+        stage('publish Coverity results') {
           steps {
-            coverityResults(connectInstance: 'escovsub1', connectView: 'Outstanding Defects - AirScale5G - DDAL', projectId: 'BTS_SC_LFS', unstable: true)
+            coverityResults(connectInstance: 'escovsub1', connectView: 'mevo-test-blue_ocean', projectId: 'BTS_SC_LFS', unstable: true)
           }
         }
       }
