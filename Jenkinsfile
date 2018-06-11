@@ -10,8 +10,8 @@ pipeline {
         }
         stage('Coverity_run') {
           steps {
-            sh '''cd jenkins/scripts/
-./coverity_scan_all.sh y'''
+            sh '''# cd jenkins/scripts/
+# ./coverity_scan_all.sh y'''
           }
         }
       }
