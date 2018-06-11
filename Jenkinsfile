@@ -23,9 +23,9 @@ pipeline {
             echo 'Cleaning up ...'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
-            coverityResults(connectInstance: 'escovsub1', connectView: 'master--ddal--x86_64-pc-linux-gnu', projectId: 'BTS_SC_LFS', failPipeline: true)
+            coverityResults(connectInstance: 'escovsub1', connectView: 'Outstanding Defects - AirScale5G - DDAL', projectId: 'BTS_SC_LFS', failPipeline: true)
           }
         }
       }
