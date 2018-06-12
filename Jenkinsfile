@@ -18,9 +18,9 @@ pipeline {
     }
     stage('Publish Results') {
       parallel {
-        stage('Cleanup_Message') {
+        stage('Publish_Message') {
           steps {
-            echo 'Cleaning up ...'
+            echo 'Publishing Coverity results ...'
           }
         }
         stage('publish Coverity results') {
@@ -36,8 +36,17 @@ pipeline {
       }
     }
     stage('Cleanup') {
-      steps {
-        echo 'cleaning up ...'
+      parallel {
+        stage('Cleanup_Message') {
+          steps {
+            echo 'Cleaning up workspace ...'
+          }
+        }
+        stage('Cleanup') {
+          steps {
+            sh 'rm -rf jenkins/data/COV_WORKDIR'
+          }
+        }
       }
     }
   }
