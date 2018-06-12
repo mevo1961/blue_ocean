@@ -6,6 +6,4 @@ void myPrintHelloMake(void) {
   printf("Hello makefiles!\n");
 
   return;
-
-  printf("Hello makefiles!\n");
 }
