@@ -42,7 +42,7 @@ pipeline {
             echo 'Cleaning up workspace ...'
           }
         }
-        stage('Cleanup') {
+        stage('Cleanup_Workdir') {
           steps {
             sh 'rm -rf jenkins/data/COV_WORKDIR'
           }
