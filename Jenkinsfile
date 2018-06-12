@@ -30,7 +30,7 @@ pipeline {
         }
         stage('publish Html') {
           steps {
-            publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: true, reportDir: './jenkins/data/COV_WORKDIR/coverity-report/html', reportFiles: 'index.html', reportTitles: '', reportName: 'Coverity Html'])
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: './jenkins/data/COV_WORKDIR/coverity-report/html', reportFiles: 'index.html', reportTitles: '', reportName: 'Coverity Html'])
           }
         }
       }
