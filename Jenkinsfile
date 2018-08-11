@@ -11,10 +11,5 @@ pipeline {
         echo 'Cleaning up ...'
       }
     }
-    stage('Cleanup') {
-      steps {
-        echo 'cleaning up ...'
-      }
-    }
   }
 }
