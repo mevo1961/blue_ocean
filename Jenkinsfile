@@ -2,8 +2,17 @@ pipeline {
   agent any
   stages {
     stage('Coverity_Message') {
-      steps {
-        echo 'Test Stage Coverity'
+      parallel {
+        stage('Coverity_Message') {
+          steps {
+            echo 'Test Stage Coverity'
+          }
+        }
+        stage('') {
+          steps {
+            sh 'date'
+          }
+        }
       }
     }
     stage('Cleanup_Message') {
