@@ -8,7 +8,7 @@ pipeline {
             echo 'Test Stage Coverity'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             sh 'date'
           }
