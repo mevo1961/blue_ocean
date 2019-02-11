@@ -48,7 +48,7 @@ pwd'''
             sh './jenkins/scripts/coverity_scan_all.sh FSM-r3 ddal n'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             coverityResults(connectInstance: 'blabla', connectView: 'blabla', projectId: 'blabla', failPipeline: true)
           }
